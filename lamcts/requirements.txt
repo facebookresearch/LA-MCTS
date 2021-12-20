@@ -1,0 +1,8 @@
+numpy>=1.20.3
+scipy>=1.6.3
+scikit-learn>=0.24.1
+scikit-optimize>=0.8.1
+torch>=1.7.1
+gpytorch>=1.4.0
+cma>=3.1.0
+nevergrad>=0.4.3
