@@ -13,7 +13,7 @@ with open("./lamcts/requirements.txt") as f:
     required = f.read().splitlines()
 
 setuptools.setup(
-     name = 'LA-MCTS-Facebook-Research',
+     name = 'LA-MCTS',
      version = '0.1',
      author = "Jia Liu",
      author_email = "jialiu@fb.com",

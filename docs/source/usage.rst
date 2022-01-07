@@ -6,7 +6,9 @@ Installation
 
 .. code-block:: console
 
-   $ python setup.py install
+   $ git clone https://github.com/facebookresearch/LA-MCTS.git
+   $ cd LA-MCTS
+   $ pip install -e .
 
 API References
 --------------

@@ -16,7 +16,6 @@ import traceback
 import numpy as np
 
 from .classifier.classifier import Classifier
-from .classifier.regression_classifier import RegressionClassifier
 from .type import Sample, Bag, ObjectFactory
 from .config import GreedyType, ConfidencyBase
 from .utils import get_logger
