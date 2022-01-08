@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Benchmark &mdash; LA-MCTS 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Usage" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> LA-MCTS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Benchmark</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-run-benchmarks">How to Run Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-functions">Test Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#control-functions">Control Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mujuco-policies">Mujuco Policies</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">LA-MCTS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Benchmark</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/benchmark.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="benchmark">
+<h1>Benchmark<a class="headerlink" href="#benchmark" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-run-benchmarks">
+<h2>How to Run Benchmarks<a class="headerlink" href="#how-to-run-benchmarks" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> example
+<span class="gp">$ </span>python run_benchmark.py -f levy100 -s mcts -m turbo -l threshold_svm -r <span class="m">40</span> -t <span class="m">180</span>
+</pre></div>
+</div>
+<p>In above example, <em>Levy100</em> is optimized with LA-MCTS as optimizer. TuRBO sampler and threhold SVM classifier are used.
+Total 40 runs are executed, each with 180 second time budget, the results will be saved in <em>example/output</em> folder.</p>
+<p>The results can then be reported by</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python benchmark_result.py -f levy100
+</pre></div>
+</div>
+<p>Only top 10 best runs are used for the report.</p>
+</div>
+<div class="section" id="test-functions">
+<h2>Test Functions<a class="headerlink" href="#test-functions" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/levy100.png"><img alt="Levy100 results" src="_images/levy100.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/ackley100.png"><img alt="Ackley100 results" src="_images/ackley100.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/rastrigin100.png"><img alt="Rastrigin100 results" src="_images/rastrigin100.png" style="width: 800px;" /></a>
+</div>
+<div class="section" id="control-functions">
+<h2>Control Functions<a class="headerlink" href="#control-functions" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/push.png"><img alt="Push results" src="_images/push.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/lunarlanding.png"><img alt="Lunar Landing results" src="_images/lunarlanding.png" style="width: 800px;" /></a>
+</div>
+<div class="section" id="mujuco-policies">
+<h2>Mujuco Policies<a class="headerlink" href="#mujuco-policies" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/hopper.png"><img alt="Hopper results" src="_images/hopper.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/humanoid.png"><img alt="Humanoid results" src="_images/humanoid.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/walker_2d.png"><img alt="Walker 2D results" src="_images/walker_2d.png" style="width: 800px;" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Facebook AI Research
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
