@@ -16,16 +16,13 @@ Welcome to LA-MCTS's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   tutorial
+   usage
+   benchmark
+
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-Contents
---------
-
-.. toctree::
-
-   usage

@@ -24,7 +24,15 @@ logger = get_logger('lamcts')
 
 class SvmClassifier(Classifier):
     """
-    A classifier using SVM for boundary
+    A classifier using SVM for boundary, refer: https://scikit-learn.org/0.24/modules/generated/sklearn.svm.SVC.html for
+    parameter details
+
+    :param lb: lower bounds of the inputs
+    :param ub: upper bounds of the inputs
+    :param svm: "svr" or "svc"
+    :param kernel: "linear", "poly", "rbf", "sigmoid" or "precomputed"
+    :param gamma: "scale" or "auto"
+    :param scaler: input preprocessing scaler, "standard" or "minmx" or empty for no scalers
     """
 
     def __init__(self, lb: np.ndarray, ub: np.ndarray, svm="svc", kernel="rbf", gamma="auto", scaler="",

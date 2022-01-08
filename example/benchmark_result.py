@@ -60,11 +60,13 @@ def plot(func, algs, tb_rlts, tb_title, cb_rslts, cb_title):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Baseline comparison')
     parser.add_argument('--func', '-f', help='function to optimize', default="ackley100")
+    parser.add_argument('--output', '-u', help='output folder where results are saved', default="")
 
     args = parser.parse_args()
 
     file_dir = os.path.dirname(os.path.abspath(__file__))
-    files = glob.glob(f"{file_dir}/output/21-12-12/{args.func}_*.pkl")
+    output_dir = f"{args.output}/" if len(args.output) > 0 else ""
+    files = glob.glob(f"{file_dir}/output/{output_dir}{args.func}_*.pkl")
     if len(files) == 0:
         print(f"No results found for {args.func}")
         exit(1)
