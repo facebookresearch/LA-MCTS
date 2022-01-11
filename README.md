@@ -32,5 +32,8 @@ Users may provide their own classifier and/or sampler by implementing Classifier
 ## Usage
 An example can be found at [example_opt.py](./example/example_opt.py).
 
+## Docs
+Detailed docs can found at [here](https://facebookresearch.github.io/LA-MCTS/).
+
 ## License
 LA-MCTS is under [CC-BY-NC 4.0 license](./LICENSE).
