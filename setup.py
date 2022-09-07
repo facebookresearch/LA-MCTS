@@ -13,20 +13,20 @@ with open("./lamcts/requirements.txt") as f:
     required = f.read().splitlines()
 
 setuptools.setup(
-     name = 'LA-MCTS',
-     version = '0.1',
-     author = "Jia Liu",
-     author_email = "jialiu@fb.com",
-     description = "LA-MCTS blackbox optimizer",
-     long_description = long_description,
-     long_description_content_type = "text/markdown",
-     url = "https://github.com/facebookresearch/LA-MCTS",
-     packages = ["lamcts"],
-     install_requires=required,
-     include_package_data = True,
-     classifiers = [
-         "Programming Language :: Python :: 3",
-         "Operating System :: OS Independent",
-         "License :: OSI Approved :: CC-BY-NC 4.0 license"
-     ]
- )
+    name='LA-MCTS',
+    version='0.1',
+    author="Jia Liu",
+    author_email="jialiu@fb.com",
+    description="LA-MCTS blackbox optimizer",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/facebookresearch/LA-MCTS",
+    packages=setuptools.find_packages(exclude=['docs', 'example']),
+    install_requires=required,
+    include_package_data=True,
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "Operating System :: OS Independent",
+        "License :: OSI Approved :: CC-BY-NC 4.0 license"
+    ]
+)
